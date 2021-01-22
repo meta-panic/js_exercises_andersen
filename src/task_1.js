@@ -54,6 +54,6 @@ console.log(autoTruck);
 console.log("Объект car");
 console.log(car);
 
-module.exports = copyProp;
-module.exports = changeCar;
-module.exports = addTonnage;
+module.exports.copyProp = copyProp;
+module.exports.changeCar = changeCar;
+module.exports.addTonnage = addTonnage;
