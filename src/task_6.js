@@ -6,3 +6,7 @@ let phrase = { value: "привет" };
 function func(surname, name) {
   console.log(`${this.value}, ${surname} ${name}`);
 } // Тут воспользуйтесь bind()func('Иванов', 'Иван'); //тут должно вывести 'привет, Иванов Иван'func('Петров', 'Петр'); //тут должно вывести 'привет, Петров Петр'
+
+func.bind(phrase);
+func("Иванов", "Иван");
+func("Петров", "Петр");
