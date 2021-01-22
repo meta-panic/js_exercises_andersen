@@ -1,3 +1,3 @@
-console.log("Как интересно!");
+console.log("index");
 const path = require("./task_1.js");
 path();

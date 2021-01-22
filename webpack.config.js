@@ -12,6 +12,7 @@ module.exports = {
   },
   devServer: {
     contentBase: "./dist",
+    open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
