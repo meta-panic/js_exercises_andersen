@@ -5,6 +5,8 @@
 
 let phrase = { value: "привет" };
 function func(surname, name) {
-  console.log(`${this.value}, ${surname} ${name}`);
+  return function () {
+    console.log(`${this.value}, ${surname} ${name}`);
+  }.call(phrase);
 }
-func.call(phrase, "Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
+func("Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
