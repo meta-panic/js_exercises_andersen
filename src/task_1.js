@@ -17,10 +17,9 @@
  * @param {*} prop новое свойство
  * @param {*} value значение нового свойства
  */
-const addProp = (inputObject, prop = "default", value = 0) => {
+const addProp = (inputObject, prop, value = 0) => {
   let obj = Object.assign({}, inputObject);
-  obj[prop] = value;
-  return obj;
+  return prop !== undefined ? ((obj[prop] = value), obj) : obj;
 };
 
 let car = { massa: 1 };
@@ -34,7 +33,7 @@ console.log(bus);
 console.log("Объект car");
 console.log(car);
 
-let autoTruck = addProp(car, "tonnage", 100);
+let autoTruck = addProp(car);
 console.log("Объект autoTruck");
 console.log(autoTruck);
 
