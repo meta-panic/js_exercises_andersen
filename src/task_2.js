@@ -9,3 +9,5 @@ console.log(
     return a % 2 == 0;
   })
 ); // 2,4,6
+
+module.exports = filter;
