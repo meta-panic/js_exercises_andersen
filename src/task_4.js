@@ -7,4 +7,4 @@ let phrase = { value: "привет" };
 function func(surname, name) {
   console.log(`${this.value}, ${surname} ${name}`);
 }
-func(); //тут должно вывести 'привет, Иванов Иван'
+func.call(phrase, "Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
