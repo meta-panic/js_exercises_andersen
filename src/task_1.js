@@ -13,41 +13,34 @@
 
 /**
  * Функция, которая копирует свойства из одного объекта в другой
- * @param {*} inputObject
+ * @param {*} inputObject целевой объект
  */
-function copyProp(inputObject) {
-  let newObj = Object.create({});
-  for (let key in inputObject) {
-    newObj[key] = inputObject[key];
-  }
-  return newObj;
-}
+const copyProp = (inputObject) => Object.assign({}, inputObject);
 
 /**
- * Добавляет свойство passengers c дефолтным значением 35
- * @param {*} inputObject
+ * Добавляет свойство passengers
+ * @param {*} inputObject целевой объект
+ * @param {*} value значение для свойства passengers
  */
-const changeCar = (inputObject) => {
+const changeCar = (inputObject, value = 35) => {
   let obj = copyProp(inputObject);
-  obj.passengers = 35;
+  obj.passengers = value;
   return obj;
 };
 
 /**
  * Функция для объекта типа autoTrack, копирует свойства из целевого объекта и доваляет ему свойство tonnage (значение указываем в параметрах)
- * @param {*} inputObject
- * @param {*} tonnage
+ * @param {*} inputObject целевой объект
+ * @param {*} value значение для свойства tonnage
  */
-const addTonnage = (inputObject, tonnage) => {
-  let obj = Object.assign(copyProp(inputObject), { tonnage });
-  return obj;
-};
+const addTonnage = (inputObject, value = 50) =>
+  Object.assign(copyProp(inputObject), { tonnage: value });
 
 let car = { massa: 1 };
 console.log("Объект car");
 console.log(car);
 
-let bus = changeCar(car);
+let bus = changeCar(car, 32);
 console.log("Объект bus");
 console.log(bus);
 
