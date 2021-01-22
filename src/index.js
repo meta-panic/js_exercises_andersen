@@ -1,3 +1,3 @@
 console.log("index");
-const path = require("./task_1.js");
+const path = require("./task_7.js");
 path();
