@@ -57,3 +57,10 @@ console.log(car);
 let autoTruck = addTonnage(car, 100);
 console.log("Объект autoTruck");
 console.log(autoTruck);
+
+console.log("Объект car");
+console.log(car);
+
+module.exports = copyProp;
+module.exports = changeCar;
+module.exports = addTonnage;
