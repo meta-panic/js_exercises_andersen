@@ -7,13 +7,14 @@ function makeTeam() {
     var player = function () {
       // функция-игрок
       console.log(i); // выводит свой номер
+      return i;
     };
     players.push(player);
   }
   return players;
 }
 let team = makeTeam();
-team[0](); // игрок выводит 10, а должен 0
+team[9](); // игрок выводит 10, а должен 0
 team[5](); // игрок выводит 10...// .. все игроки выводят 10 вместо 0,1,2...9
 
 /**
@@ -29,6 +30,7 @@ function makeTeam2() {
       // функция-игрок
       return function () {
         console.log(j); // выводит свой номер
+        return j;
       };
     };
     players.push(player(i));
@@ -47,6 +49,7 @@ function makeTeam3() {
     var player = function (j) {
       // функция-игрок
       console.log(j); // выводит свой номер
+      return j;
     };
     players.push(player.bind(null, i));
   }
@@ -55,3 +58,7 @@ function makeTeam3() {
 let team3 = makeTeam3();
 team3[1](); // игрок выводит 10, а должен 0
 team3[7](); // игрок выводит 10...// .. все игроки выводят 10 вместо 0,1,2...9
+
+module.exports.makeTeam = makeTeam;
+module.exports.makeTeam2 = makeTeam2;
+module.exports.makeTeam3 = makeTeam3;
