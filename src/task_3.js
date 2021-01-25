@@ -4,5 +4,8 @@
 let obj = { a: 10, b: 12 };
 function func() {
   console.log(this.a);
+  return this.a;
 }
 func.call(obj);
+
+module.exports.func = func;
