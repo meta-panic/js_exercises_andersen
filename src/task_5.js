@@ -2,11 +2,9 @@
 
 let phrase = { value: "привет" };
 function func(surname, name) {
-  return function () {
-    console.log(`${this.value}, ${surname} ${name}`);
-    return `${this.value}, ${surname} ${name}`;
-  }.apply(phrase);
+  console.log(`${this.value}, ${surname} ${name}`);
+  return `${this.value}, ${surname} ${name}`;
 }
-func("Иванов", "Иван"); //тут должно вывести 'привет, Иванов Иван'
+func.apply(phrase, ["Иванов", "Иван"]); //тут должно вывести 'привет, Иванов Иван'
 
 module.exports.func = func;
