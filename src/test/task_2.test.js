@@ -1,4 +1,4 @@
-const filter = require("./task_2");
+const filter = require("../task_2");
 
 test("Функция принимает в себя массив и другую функцию, возвращает те элементы массива,для которых функция callback возвращает true", () => {
   expect(
