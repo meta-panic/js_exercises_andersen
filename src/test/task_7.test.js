@@ -1,4 +1,4 @@
-const { makeTeam, makeTeam2, makeTeam3 } = require("./task_7");
+const { makeTeam, makeTeam2, makeTeam3 } = require("../task_7");
 
 test("Вызов функции должен выводить порядковый номер игрока (от 0 до 9)", () => {
   let team = makeTeam();
