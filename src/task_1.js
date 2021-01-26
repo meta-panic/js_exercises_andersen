@@ -33,7 +33,7 @@ console.log(bus);
 console.log("Объект car");
 console.log(car);
 
-let autoTruck = addProp(car);
+let autoTruck = addProp(car, "tonnage", 100);
 console.log("Объект autoTruck");
 console.log(autoTruck);
 
