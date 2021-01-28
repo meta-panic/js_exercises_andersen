@@ -5,3 +5,15 @@
  * sum(5) = 8
  * sum(228)
  */
+
+function addValue() {
+  var result = 0;
+  return function (value) {
+    result += value;
+    return result;
+  };
+}
+
+var sum = addValue();
+
+module.exports.sum = sum;
