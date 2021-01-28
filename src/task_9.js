@@ -6,12 +6,14 @@
  * sum(228)
  */
 
-var sum = (function () {
+function addValue() {
   var result = 0;
   return function (value) {
     result += value;
     return result;
   };
-})();
+}
+
+var sum = addValue();
 
 module.exports.sum = sum;
