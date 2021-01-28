@@ -7,7 +7,9 @@
  * свойством тоннаж (tonnage) и с помощью ее создайте объект грузовик (autoTruck)
  * на основе объекта car. Выведите в консоль описание всех созданных объектов со
  * значениями их свойств.**
- * * @param  {} inputObject */
+ * * @param  {} inputObject
+ *
+ * После реализации запустить соответствующий тест!*/
 function changeCar(inputObject) {
   let newCar = Object.assign(inputObject, { passengers: 35 });
   return newCar;
