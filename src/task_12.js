@@ -1,19 +1,19 @@
 /**
  * sum(2)(3)(5)(6) = 16
- * @param  {} acc
+ * @param  {} value
  *
  * После реализации запустить соответствующий тест!
  */
-const sum = (acc) => {
-  function add(b) {
-    if (!b) {
-      return acc;
+const sum = (value) => {
+  function add(nextValue) {
+    if (!nextValue) {
+      return value;
     }
-    return sum(acc + b);
+    return sum(value + nextValue);
   }
 
   add.toString = function () {
-    return acc;
+    return value;
   };
 
   return add;
