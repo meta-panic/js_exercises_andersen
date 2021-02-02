@@ -10,17 +10,19 @@
  */
 
 function getResolvedPromise(value) {
-  return Promise.resolve(value);
+  return Promise.resolve(value)
+    .then(function () {
+      if (value > 300) {
+        throw new Error("Error");
+      }
+      return "Horay";
+    })
+    .catch((e) => {
+      console.log(e.message);
+    })
+    .finally(console.log("This is Finally!"));
 }
 
-getResolvedPromise(500)
-  .then((value) => {
-    if (value > 300) {
-      throw new Error("Error");
-    }
-    return "Horay";
-  })
-  .catch((e) => console.error(e.message))
-  .finally(() => console.log("This is Finally!"));
+getResolvedPromise(3040);
 
 module.exports.getResolvedPromise = getResolvedPromise;
