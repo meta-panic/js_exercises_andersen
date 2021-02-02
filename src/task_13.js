@@ -7,21 +7,20 @@
 
 function getData(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG") {
   fetch(url)
-    .then(
-      (response) => response.json(),
-      (err) => {
-        throw new Error(err);
+    .then((response) => response.json())
+    .then((response) => {
+      if (response.getUsersData === true) {
+        console.log(response.getUsersData);
+      } else {
+        throw new Error("getUsersData не true");
       }
-    )
-    .then(
-      (response) => console.log(response.getUsersData),
-      (err) => {
-        console.log(err);
-      }
-    );
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
 }
 
-getData();
+// getData();
 
 // Вариант 2
 
@@ -32,10 +31,17 @@ function getData2(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG")
     xhr.onload = () => resolve(JSON.parse(xhr.responseText));
     xhr.onerror = () => reject(xhr.statusText);
     xhr.send();
-  }).then(
-    (resolve) => console.log(resolve.getUsersData),
-    (reject) => console.log(reject)
-  );
+  })
+    .then((response) => {
+      if (response.getUsersData === true) {
+        console.log(response.getUsersData);
+      } else {
+        throw new Error("getUsersData не true");
+      }
+    })
+    .catch((e) => {
+      console.log(e.message);
+    });
 }
 
 getData2();
