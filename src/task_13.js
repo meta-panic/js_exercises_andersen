@@ -5,12 +5,17 @@
  * данные из http://www.json-generator.com/api/json/get/cfVGucaXPC
  */
 
-function getData(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG") {
+const [isUserDataUrl, userDataUrl] = [
+  "http://www.json-generator.com/api/json/get/cfQCylRjuG",
+  "http://www.json-generator.com/api/json/get/cfVGucaXPC",
+];
+
+function getData(url = isUserDataUrl) {
   fetch(url)
     .then((response) => response.json())
     .then((response) => {
       if (response.getUsersData === true) {
-        console.log(response.getUsersData);
+        fetch(userDataUrl).then((response) => response.json().then((data) => console.table(data)));
       } else {
         throw new Error("getUsersData не true");
       }
@@ -20,11 +25,11 @@ function getData(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG") 
     });
 }
 
-// getData();
+getData();
 
 // Вариант 2
 
-function getData2(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG") {
+function getData2(url = isUserDataUrl) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -34,7 +39,7 @@ function getData2(url = "http://www.json-generator.com/api/json/get/cfQCylRjuG")
   })
     .then((response) => {
       if (response.getUsersData === true) {
-        console.log(response.getUsersData);
+        fetch(userDataUrl).then((response) => response.json().then((data) => console.table(data)));
       } else {
         throw new Error("getUsersData не true");
       }
