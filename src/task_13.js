@@ -10,12 +10,12 @@ const [isUserDataUrl, userDataUrl] = [
   "http://www.json-generator.com/api/json/get/cfVGucaXPC",
 ];
 
-function getData(url = isUserDataUrl) {
-  fetch(url)
+function getData(firtsUrl = isUserDataUrl, secondUrl = userDataUrl) {
+  fetch(firtsUrl)
     .then((response) => response.json())
     .then((response) => {
       if (response.getUsersData === true) {
-        fetch(userDataUrl).then((response) => response.json().then((data) => console.table(data)));
+        fetch(secondUrl).then((response) => response.json().then((data) => console.table(data)));
       } else {
         throw new Error("getUsersData не true");
       }
@@ -29,17 +29,17 @@ getData();
 
 // Вариант 2
 
-function getData2(url = isUserDataUrl) {
+function getData2(firtsUrl = isUserDataUrl, secondUrl = userDataUrl) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
+    xhr.open("GET", firtsUrl);
     xhr.onload = () => resolve(JSON.parse(xhr.responseText));
     xhr.onerror = () => reject(xhr.statusText);
     xhr.send();
   })
     .then((response) => {
       if (response.getUsersData === true) {
-        fetch(userDataUrl).then((response) => response.json().then((data) => console.table(data)));
+        fetch(secondUrl).then((response) => response.json().then((data) => console.table(data)));
       } else {
         throw new Error("getUsersData не true");
       }
