@@ -8,7 +8,6 @@
  *
  * После реализации запустить соответствующий тест!
  */
-
 function getResolvedPromise(value) {}
 
 module.exports.getResolvedPromise = getResolvedPromise;
