@@ -15,11 +15,20 @@ function getData(firtsUrl = isUserDataUrl, secondUrl = userDataUrl) {
     .then((response) => response.json())
     .then((response) => {
       if (response.getUsersData === true) {
-        fetch(secondUrl).then((response) => response.json().then((data) => console.table(data)));
+        return fetch(secondUrl);
       } else {
         throw new Error("getUsersData не true");
       }
     })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data[0].username === "Silas") {
+        console.table(data[0]);
+        return fetch("https://next.json-generator.com/api/json/get/E1eX9Wre5");
+      }
+    })
+    .then((response) => response.json())
+    .then((data) => console.table(data))
     .catch((e) => {
       console.log(e.message);
     });
