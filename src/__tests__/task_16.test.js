@@ -12,6 +12,16 @@ describe("Проверка compose", () => {
   it("Проверка multiply и multiply, а так же порядка выполнения", () => {
     expect(compose(multiply(1), multiply(1))(2)).toBe(2);
   });
+
+  it("Проверка с 3-мя аругментами", () => {
+    expect(compose(plus(2), plus(2), multiply(4))(5)).toBe(24);
+    expect(compose(plus(1), plus(5), multiply(78))(11)).toBe(864);
+  });
+
+  it("Проверка с 4-мя аругментами", () => {
+    expect(compose(plus(2), plus(2), multiply(4), plus(6))(5)).toBe(48);
+    expect(compose(plus(1), plus(5), multiply(78), multiply(2))(11)).toBe(1722);
+  });
 });
 
 describe("Проверка plus", () => {
